@@ -16,7 +16,7 @@
     <!-- camera definitions -->
     <xacro:arg name="cover_type" default="fisheye" /> <!--options: pi, fisheye, realsense, zedmini -->
     <xacro:property name="cover_type_name" value="$(arg cover_type)" />
-    
+
     <xacro:arg name="publish_pointcloud"  default="false"/>
     <xacro:arg name="publish_odom_tf"  default="false"/>
 
@@ -29,7 +29,7 @@
     <!--https://github.com/ros-simulation/gazebo_ros_pkgs/pull/1284 -->
     <xacro:nanosaur cover_type="$(arg cover_type)"
                     use_nominal_extrinsics="true"
-                    diff_drive_emulation="true"
+                    diff_drive_emulation="false"
                     path_meshes="file://$(find nanosaur_description)/meshes" />
 
     <!-- nanosaur differential drive controller -->
@@ -37,7 +37,7 @@
                        robot_name="$(arg robot_name)"
                        update_rate="100.0"
                        wheel_radius="0.0150"
-                       wheel_separation="0.4"
+                       wheel_separation="0.11"
                        publish_odom_tf="$(arg publish_odom_tf)" />
 
     <!-- Nanosaur sensors -->
